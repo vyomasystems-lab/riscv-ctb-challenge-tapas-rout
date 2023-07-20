@@ -11,10 +11,15 @@ RVTEST_CODE_BEGIN
   li TESTNUM, 2
 
   la t0, test_cases
-  li t5, 3
+  li t5, 0                # set t5 to zero
+  li t6, 0                # set t6 as flag to end loop
 
 loop:
-	lw t1, (t0)
+	slt t6, t5, 3           # check if current loop number is less than 3, 
+                          # TRUE = 1, FALSE = 0
+  beq t6, x0, test_end    # if FALSE exit
+  addi t5, t5, 1          # count each iteration of loop in t5
+  lw t1, (t0)
   lw t2, 4(t0)
   lw t3, 8(t0)
   add t4, t1, t2
