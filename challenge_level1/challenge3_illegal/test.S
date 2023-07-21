@@ -25,7 +25,6 @@ mtvec_handler:
   csrr t0, mcause
   bne t0, t1, fail
   csrr t0, mepc
-  
   mret
 
 
