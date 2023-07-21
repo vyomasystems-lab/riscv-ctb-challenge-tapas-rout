@@ -1,4 +1,3 @@
-
 all: gen compile disass spike
 
 gen: clean

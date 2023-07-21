@@ -10,8 +10,11 @@ RVTEST_CODE_BEGIN
   .option norvc
 
   li TESTNUM, 2
+  la t4, mtvec_handler
+  csrw mtvec, t4
+
 illegal_instruction:
-  .word 0              
+  .word 0
   j fail
   TEST_PASSFAIL
 
@@ -22,8 +25,9 @@ mtvec_handler:
   csrr t0, mcause
   bne t0, t1, fail
   csrr t0, mepc
-
+  
   mret
+
 
 RVTEST_CODE_END
 
