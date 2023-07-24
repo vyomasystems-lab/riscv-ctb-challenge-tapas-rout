@@ -15,8 +15,7 @@ RVTEST_CODE_BEGIN
 
 illegal_instruction:
   .word 0
-  j fail
-  TEST_PASSFAIL
+  addi t3, t4, t4
 
   .align 8
   .global mtvec_handler
@@ -24,9 +23,12 @@ mtvec_handler:
   li t1, CAUSE_ILLEGAL_INSTRUCTION
   csrr t0, mcause
   bne t0, t1, fail
-  csrr t0, mepc
+  csrr t2, mepc
+  addi t2, t2, 4
+  csrw mepc, t2
   mret
 
+TEST_PASSFAIL
 
 RVTEST_CODE_END
 

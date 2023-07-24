@@ -63,7 +63,7 @@ isa-instruction-distribution:
   rel_rv32i.zbt: 0
   rel_rv64i.zbt: 0
   rel_rv32m: 0
-  rel_rv64m: 0             
+  rel_rv64m: 0              # Program set to generate rv32i instrcutions only. Disabled rv64.
   rel_rv32a: 0
   rel_rv64a: 0
   rel_rv32f: 0
@@ -178,7 +178,7 @@ d-cache:
 exception-generation:
   ecause00: 0
   ecause01: 0
-  ecause02: 10
+  ecause02: 5
   ecause03: 0
   ecause04: 0
   ecause05: 0
